@@ -1,17 +1,17 @@
-# ?? ??? ?? ??
+# 한글 깨지는 현상 방지
 server:
   servlet:
     encoding:
       force-response: true
 
-# DB ?? ??
+# DB 연결 정보
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/likelion-db
     username: root
     password: root1234
-# JPA ??
+# JPA 설정
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL8Dialect
