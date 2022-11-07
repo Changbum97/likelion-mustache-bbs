@@ -8,7 +8,7 @@
 - Bootstrap 5 적용
   - 화면에 Navbar, Footer 추가
   - 화면에 layout 적용
-- Form 입력을 Controller에서 받아오기
+- Mustache Form 입력을 Controller에서 받기
 - JPA 적용
   - JPA 라이브러리 설치
   - JPA Entity 생성
