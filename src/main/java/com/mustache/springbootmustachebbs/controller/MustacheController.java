@@ -11,7 +11,7 @@ public class MustacheController {
     @GetMapping("/hi")
     public String mustacheCon(Model model) {
         // View에 값을 넘기겠다
-        model.addAttribute("username", "rok");
+        model.addAttribute("username", "유저 이름");
         model.addAttribute("id", "");
 
         // "greetings"라는 view return
@@ -20,7 +20,7 @@ public class MustacheController {
 
     @GetMapping("/hi/{id}")
     public String mustacheCon2(Model model, @PathVariable String id) {
-        model.addAttribute("username", "rok");
+        model.addAttribute("username", "유저 이름");
         model.addAttribute("id", id);
 
         return "greetings";
