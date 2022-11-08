@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.swing.text.html.Option;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -27,12 +28,20 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
+    @GetMapping(value = {"", "/list"})
+    public String list(Model model) {
+        List<Article> articles = articleRepository.findAll();
+        model.addAttribute("articles", articles);
+        return "articles/list";
+    }
+
+
     @GetMapping("/new")
     public String newArticleForm() {
         return "articles/new";
     }
 
-    @PostMapping("/posts")
+    @PostMapping("")
     public String createArticle(ArticleDto form) {
         log.info(form.toString());
 
@@ -42,7 +51,7 @@ public class ArticleController {
         Article savedArticle = articleRepository.save(article);
         log.info(savedArticle.toString());
 
-        return "articles/new";
+        return "redirect:/articles/" + savedArticle.getId();
     }
 
     @GetMapping("/{id}")
