@@ -7,8 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
@@ -57,7 +59,6 @@ public class ArticleController {
     public String selectSingle(@PathVariable Long id, Model model) {
         Optional<Article> optArticle = articleRepository.findById(id);
 
-        System.out.println("show");
         if(optArticle.isEmpty()) {
             return "error";
         }
@@ -85,8 +86,11 @@ public class ArticleController {
     }
 
     @GetMapping("/{id}/delete")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable Long id, Model model) {
         articleRepository.deleteById(id);
-        return "redirect:/articles/list";
+        model.addAttribute("articles", articleRepository.findAll());
+        model.addAttribute("alertMessage", id + "번 글 삭제 완료");
+        return "/articles/list";
+        //return "redirect:/articles/list";
     }
 }
