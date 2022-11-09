@@ -28,7 +28,12 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
-    @GetMapping(value = {"", "/list"})
+    @GetMapping(value = {"", "/"})
+    public String home() {
+        return "redirect:/articles/list";
+    }
+
+    @GetMapping("/list")
     public String list(Model model) {
         List<Article> articles = articleRepository.findAll();
         model.addAttribute("articles", articles);
