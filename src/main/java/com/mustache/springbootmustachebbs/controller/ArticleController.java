@@ -77,8 +77,8 @@ public class ArticleController {
         return "articles/edit";
     }
 
-    @PostMapping("/{id}/update")
-    public String update(@PathVariable Long id, ArticleDto articleDto) {
+    @PutMapping("/{id}")
+    public String put(@PathVariable Long id, ArticleDto articleDto){
         articleRepository.save(articleDto.toEntity());
         return "redirect:/articles/" + id;
     }
