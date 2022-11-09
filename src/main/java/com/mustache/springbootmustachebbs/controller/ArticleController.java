@@ -57,6 +57,7 @@ public class ArticleController {
     public String selectSingle(@PathVariable Long id, Model model) {
         Optional<Article> optArticle = articleRepository.findById(id);
 
+        System.out.println("show");
         if(optArticle.isEmpty()) {
             return "error";
         }
@@ -78,8 +79,14 @@ public class ArticleController {
     }
 
     @PutMapping("/{id}")
-    public String put(@PathVariable Long id, ArticleDto articleDto){
+    public String update(@PathVariable Long id, ArticleDto articleDto){
         articleRepository.save(articleDto.toEntity());
         return "redirect:/articles/" + id;
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id) {
+        articleRepository.deleteById(id);
+        return "redirect:/articles/list";
     }
 }
