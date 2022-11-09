@@ -18,7 +18,7 @@ spring:
     database: mysql
     hibernate:
       ddl-auto: update
-# POST, DELETE 가능하게 해줌
+# PUT, DELETE 가능하게 해줌
   mvc:
     hiddenmethod:
       filter:
