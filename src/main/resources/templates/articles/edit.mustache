@@ -1,16 +1,19 @@
 {{>layouts/header}}
+<h1>여기는 Edit 페이지 입니다.</h1>
 {{#article}}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">id : {{id}}</h6>
-        <p class="card-text">{{content}}</p>
-        <a href="/articles/new" class="card-link">new article</a>
-        <a href="/articles/list" class="card-link">article list</a>
-    </div>
-</div>
-<br/>
-<a href="/articles/{{id}}/edit" class="btn btn-primary" style="width: 70px; margin-right: 20px">Edit</a>
-<a href="/articles/{{id}}/delete" class="btn btn-danger" style="width: 70px;">Delete</a>
+<form action="/articles/{{id}}/update" method="post">
+    <div>id : {{id}}</div>
+    <input type="text" name="title" value="{{title}}">
+    <br/><br/>
+    <textarea rows="3" name="content">{{content}}</textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<a href="/articles/{{id}}" class="btn btn-success">1개 조회</a>
+<a href="/articles/list" class="btn btn-warning">목록</a>
 {{/article}}
 {{>layouts/footer}}
+<style>
+    .btn {
+        margin: 10px;
+    }
+</style>

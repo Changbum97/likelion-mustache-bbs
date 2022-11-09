@@ -4,15 +4,10 @@ import com.mustache.springbootmustachebbs.domain.dto.ArticleDto;
 import com.mustache.springbootmustachebbs.domain.entity.Article;
 import com.mustache.springbootmustachebbs.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +34,6 @@ public class ArticleController {
         model.addAttribute("articles", articles);
         return "articles/list";
     }
-
 
     @GetMapping("/new")
     public String newArticleForm() {
@@ -69,5 +63,23 @@ public class ArticleController {
 
         model.addAttribute("article", optArticle.get());
         return "articles/show";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable Long id, Model model) {
+        Optional<Article> optArticle = articleRepository.findById(id);
+        if(optArticle.isEmpty()) {
+            model.addAttribute("message", id + "가 없습니다");
+            return "error";
+        }
+
+        model.addAttribute("article", optArticle.get());
+        return "articles/edit";
+    }
+
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable Long id, ArticleDto articleDto) {
+        articleRepository.save(articleDto.toEntity());
+        return "redirect:/articles/" + id;
     }
 }
