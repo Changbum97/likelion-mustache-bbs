@@ -35,3 +35,6 @@
     - \<input type="hidden" name="_method" value="put" />
 - 글 삭제시 알림 메세지 뜨게 설정
   - java script 사용
+
+## Day 4 (11/10 목)
+- 연관관계 매핑(@OneToMany, @ManyToOne)을 사용해 댓글 기능 추가
