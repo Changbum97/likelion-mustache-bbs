@@ -1,20 +1,22 @@
 {{>layouts/header}}
-<h1>여기는 Edit 페이지 입니다.</h1>
+<h2>Edit Page</h2>
 {{#article}}
 <form action="/articles/{{id}}" method="post">
     <input type="hidden" name="_method" value="put" />
-    <div>id : {{id}}</div>
+    <div>id : {{id}}</div><br/>
+    <label for="title" class="form-label">Title : </label>
     <input type="text" name="title" value="{{title}}">
     <br/><br/>
+    <label for="content" class="form-label">Content : </label>
     <textarea rows="3" name="content">{{content}}</textarea>
+    <br/>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/articles/{{id}}" class="btn btn-danger">Cancel</a>
 </form>
-<a href="/articles/{{id}}" class="btn btn-success">1개 조회</a>
-<a href="/articles/list" class="btn btn-warning">목록</a>
 {{/article}}
 {{>layouts/footer}}
 <style>
-    .btn {
-        margin: 10px;
+    .form-label {
+        width: 70px;
     }
 </style>

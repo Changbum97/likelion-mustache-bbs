@@ -1,21 +1,23 @@
 {{>layouts/header}}
 <button type="button" onclick="location.href='/articles/new'" class="btn btn-warning">새 글 작성</button>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Title</th>
-            <th scope="col">Content</th>
-        </tr>
-    </thead>
-    <tbody class="table-group-divider">
-    {{#articles}}
-        <tr>
-            <th>{{id}}</th>
-            <td><a href="/articles/{{id}}">{{title}}</a></td>
-            <td>{{content}}</td>
-        </tr>
-    {{/articles}}
-    </tbody>
-</table>
+<div class="col-6">
+    <table class="table" style="margin-top: 20px; margin-bottom: 50px;">
+        <thead class="table-info">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        {{#articles}}
+            <tr>
+                <th>{{id}}</th>
+                <td><a href="/articles/{{id}}">{{title}}</a></td>
+                <td>{{content}}</td>
+            </tr>
+        {{/articles}}
+        </tbody>
+    </table>
+</div>
 {{>layouts/footer}}
