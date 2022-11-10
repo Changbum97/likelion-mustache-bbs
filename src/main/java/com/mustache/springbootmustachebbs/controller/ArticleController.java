@@ -44,13 +44,9 @@ public class ArticleController {
 
     @PostMapping("")
     public String createArticle(ArticleDto form) {
-        log.info(form.toString());
-
         // ArticleDto를 Article로 만들어줌
         Article article = form.toEntity();
-
         Article savedArticle = articleRepository.save(article);
-        log.info(savedArticle.toString());
 
         return "redirect:/articles/" + savedArticle.getId();
     }
@@ -64,6 +60,7 @@ public class ArticleController {
         }
 
         model.addAttribute("article", optArticle.get());
+        model.addAttribute("replies", optArticle.get().getReplies());
         return "articles/show";
     }
 

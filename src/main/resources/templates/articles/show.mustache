@@ -1,21 +1,30 @@
 {{>layouts/header}}
+<h2>Show Page</h2>
 {{#article}}
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">{{title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">id : {{id}}</h6>
         <p class="card-text">{{content}}</p>
-        <a href="/articles/new" class="card-link">new article</a>
-        <a href="/articles/list" class="card-link">article list</a>
     </div>
 </div>
 <a href="/articles/{{id}}/edit" class="btn btn-primary">Edit</a>
 <a href="/articles/{{id}}/delete" class="btn btn-danger">Delete</a>
+<br/><br/><hr>
+<h3>댓글</h3>
+<form action="/reply/{{id}}" method="post">
+    <label for="writer" class="form-label">Writer : </label>
+    <input type="text" name="writer">
+    <label for="comment" class="form-label">Comment : </label>
+    <input type="text" name="comment" style="width: 300px">
+    <button type="submit" class="btn btn-warning" style="margin-top: 0px">Submit</button>
+</form>
+<br/>
+{{#replies}}
+    <h5>작성자 : {{writer}}</h5>
+    <h5>댓글 내용 : {{comment}} </h5>
+    <a href="/reply/delete/{{id}}">삭제</a>
+    <br/><br/>
+{{/replies}}
 {{/article}}
 {{>layouts/footer}}
-<style>
-    .btn {
-        width: 70px;
-        margin: 10px;
-    }
-</style>
