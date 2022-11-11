@@ -1,6 +1,6 @@
-package com.mustache.springbootmustachebbs.domain.dto;
+package com.mustache.springbootmustachebbs.basicboard.domain.dto;
 
-import com.mustache.springbootmustachebbs.domain.entity.Article;
+import com.mustache.springbootmustachebbs.basicboard.domain.entity.Article;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;

@@ -1,9 +1,9 @@
-package com.mustache.springbootmustachebbs.controller;
+package com.mustache.springbootmustachebbs.basicboard.controller;
 
-import com.mustache.springbootmustachebbs.domain.dto.ReplyDto;
-import com.mustache.springbootmustachebbs.domain.entity.Reply;
-import com.mustache.springbootmustachebbs.repository.ArticleRepository;
-import com.mustache.springbootmustachebbs.repository.ReplyRepository;
+import com.mustache.springbootmustachebbs.basicboard.domain.dto.ReplyDto;
+import com.mustache.springbootmustachebbs.basicboard.domain.entity.Reply;
+import com.mustache.springbootmustachebbs.basicboard.repository.ArticleRepository;
+import com.mustache.springbootmustachebbs.basicboard.repository.ReplyRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

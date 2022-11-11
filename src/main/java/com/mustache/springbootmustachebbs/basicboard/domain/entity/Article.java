@@ -1,4 +1,4 @@
-package com.mustache.springbootmustachebbs.domain.entity;
+package com.mustache.springbootmustachebbs.basicboard.domain.entity;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.mustache.springbootmustachebbs.domain.dto;
+package com.mustache.springbootmustachebbs.basicboard.domain.dto;
 
 import lombok.Data;
 import lombok.Getter;

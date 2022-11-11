@@ -1,16 +1,14 @@
-package com.mustache.springbootmustachebbs.controller;
+package com.mustache.springbootmustachebbs.basicboard.controller;
 
-import com.mustache.springbootmustachebbs.domain.dto.ArticleDto;
-import com.mustache.springbootmustachebbs.domain.entity.Article;
-import com.mustache.springbootmustachebbs.repository.ArticleRepository;
+import com.mustache.springbootmustachebbs.basicboard.repository.ArticleRepository;
+import com.mustache.springbootmustachebbs.basicboard.domain.dto.ArticleDto;
+import com.mustache.springbootmustachebbs.basicboard.domain.entity.Article;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
