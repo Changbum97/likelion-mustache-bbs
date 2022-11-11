@@ -32,7 +32,7 @@ public class ArticleController {
     public String list(Model model) {
         List<Article> articles = articleRepository.findAll();
         model.addAttribute("articles", articles);
-        return "articles/list";
+        return "basicboard/articles/list";
     }
 
     @GetMapping("/new")
@@ -59,7 +59,7 @@ public class ArticleController {
 
         model.addAttribute("article", optArticle.get());
         model.addAttribute("replies", optArticle.get().getReplies());
-        return "articles/show";
+        return "basicboard/articles/show";
     }
 
     @GetMapping("/{id}/edit")
@@ -71,7 +71,7 @@ public class ArticleController {
         }
 
         model.addAttribute("article", optArticle.get());
-        return "articles/edit";
+        return "basicboard/articles/edit";
     }
 
     @PutMapping("/{id}")
@@ -85,7 +85,7 @@ public class ArticleController {
         articleRepository.deleteById(id);
         model.addAttribute("articles", articleRepository.findAll());
         model.addAttribute("alertMessage", id + "번 글 삭제 완료");
-        return "/articles/list";
+        return "basicboard/articles/list";
         //return "redirect:/articles/list";
     }
 }
