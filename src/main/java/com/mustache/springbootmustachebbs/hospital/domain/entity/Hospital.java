@@ -1,5 +1,7 @@
 package com.mustache.springbootmustachebbs.hospital.domain.entity;
 
+import com.mustache.springbootmustachebbs.hospital.domain.dto.HospitalShowDto;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -24,4 +26,20 @@ public class Hospital {
     private Integer patientRoomCount;           // 입원실 수
     private Integer totalNumberOfBeds;          // 병상 수
     private Float totalAreaSize;            // 총 면적
+
+    public HospitalShowDto toDto() {
+        String businessStatusCodeString;
+        if(this.businessStatusCode == 13) {
+            businessStatusCodeString = "영업중";
+        } else if(this.businessStatusCode == 2) {
+            businessStatusCodeString = "휴업";
+        } else if(this.businessStatusCode == 3) {
+            businessStatusCodeString = "폐업";
+        } else {
+            businessStatusCodeString = "기타";
+        }
+
+        return new HospitalShowDto(id, hospitalName, businessTypeName, businessStatusCodeString, roadNameAddress, phone, totalAreaSize);
+    }
 }
+

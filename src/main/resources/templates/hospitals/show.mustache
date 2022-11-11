@@ -1,0 +1,29 @@
+{{>layouts/header}}
+{{#hospital}}
+<h2>{{hospitalName}}</h2>
+<div class="col-10">
+    <table class="table" style="margin-top: 20px; margin-bottom: 50px;">
+        <thead class="table-info">
+        <tr>
+            <th scope="col">업태 구분명</th>
+            <th scope="col">영업 상태</th>
+            <th scope="col">도로명 주소</th>
+            <th scope="col">전화 번호</th>
+            <th scope="col">면적</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <td>{{businessTypeName}}</td>
+                <td>{{businessStatusCode}}</td>
+                <td>{{roadNameAddress}}</td>
+                <td>{{phone}}</td>
+                <td>{{totalAreaSize}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{{/hospital}}
+<a href="/hospitals/list" class="btn btn-danger">Show List</a>
+<br/><br/>
+{{>layouts/footer}}

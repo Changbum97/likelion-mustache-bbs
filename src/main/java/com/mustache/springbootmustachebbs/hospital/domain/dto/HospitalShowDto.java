@@ -1,2 +1,17 @@
-package com.mustache.springbootmustachebbs.hospital.domain.dto;public class HospitalShowDto {
+package com.mustache.springbootmustachebbs.hospital.domain.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public class HospitalShowDto {
+
+    private Integer id;
+    private String hospitalName;
+    private String businessTypeName;
+    private String businessStatusCode;
+    private String roadNameAddress;
+    private String phone;
+    private Float totalAreaSize;
 }
