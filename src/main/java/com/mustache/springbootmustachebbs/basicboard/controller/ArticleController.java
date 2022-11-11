@@ -37,7 +37,7 @@ public class ArticleController {
 
     @GetMapping("/new")
     public String newArticleForm() {
-        return "articles/new";
+        return "basicboard/articles/new";
     }
 
     @PostMapping("")
