@@ -1,5 +1,4 @@
 {{>layouts/header}}
-<button type="button" onclick="location.href='/articles/new'" class="btn btn-warning">새 글 작성</button>
 <div class="col-10">
     <table class="table" style="margin-top: 20px; margin-bottom: 50px;">
         <thead class="table-info">
@@ -13,7 +12,7 @@
         {{#hospitals}}
             <tr>
                 <th>{{id}}</th>
-                <td><a href="/articles/{{id}}">{{hospitalName}}</a></td>
+                <td>{{hospitalName}}</a></td>
                 <td>{{roadNameAddress}}</td>
             </tr>
         {{/hospitals}}
@@ -21,7 +20,11 @@
     </table>
 </div>
 <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="?page={{previous}}">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="?page={{next}}">Next</a></li>
+    <li class="page-item">
+        <a class="page-link" href="?page={{previous}}">Previous</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="?page={{next}}">Next</a>
+    </li>
 </ul>
 {{>layouts/footer}}
