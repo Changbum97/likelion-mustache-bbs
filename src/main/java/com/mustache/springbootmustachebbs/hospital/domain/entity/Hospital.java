@@ -1,5 +1,6 @@
 package com.mustache.springbootmustachebbs.hospital.domain.entity;
 
+import com.mustache.springbootmustachebbs.hospital.domain.dto.HospitalResponse;
 import com.mustache.springbootmustachebbs.hospital.domain.dto.HospitalShowDto;
 import lombok.Data;
 
@@ -42,6 +43,10 @@ public class Hospital {
         }
 
         return new HospitalShowDto(id, hospitalName, businessTypeName, businessStatusCodeString, roadNameAddress, phone, totalAreaSize);
+    }
+
+    public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(), hospital.getHospitalName(), hospital.getRoadNameAddress());
     }
 }
 
