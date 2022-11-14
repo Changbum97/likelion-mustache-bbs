@@ -44,3 +44,13 @@
 - 전국 병의원 정보 리스트 페이징 구현
 - 전국 병의원 정보 show 구현
 - Bootstrap DropDown 기능 적용
+
+## Day 6 (11/14 월)
+- Jpa Repository 기능 사용 실습
+  - contains
+  - in
+  - like
+  - and
+  - between
+  - less than, greater than, less than equal, greater than equal
+  - order by
