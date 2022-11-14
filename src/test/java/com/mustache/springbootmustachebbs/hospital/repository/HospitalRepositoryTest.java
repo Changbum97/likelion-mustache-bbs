@@ -56,7 +56,8 @@ class HospitalRepositoryTest {
     @Test
     @DisplayName("병상수가 10개 이상 20개 미만인 병원 검색 Test")
     void Test4() {
-        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 19);
+        //List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 19);
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsGreaterThanEqualAndTotalNumberOfBedsLessThan(10, 20);
         for(Hospital hospital : hospitals) {
             System.out.println(hospital.getHospitalName() + " : " + hospital.getTotalNumberOfBeds());
         }
