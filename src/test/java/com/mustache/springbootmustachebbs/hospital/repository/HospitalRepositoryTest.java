@@ -38,4 +38,18 @@ class HospitalRepositoryTest {
             System.out.println(hospital.getHospitalName() + " : " + hospital.getBusinessTypeName());
         }
     }
+
+    @Test
+    @DisplayName("주소 + 업태구분명으로 데이터 검색 Test")
+    void Test3() {
+        List<String> inClues = new ArrayList<>();
+        inClues.add("보건소");
+        inClues.add("보건지소");
+        inClues.add("보건복지소");
+
+        List<Hospital> hospitals = hospitalRepository.findByRoadNameAddressLikeAndBusinessTypeNameIn("%수원%", inClues);
+        for(Hospital hospital : hospitals) {
+            System.out.println(hospital.getHospitalName() + " : " + hospital.getRoadNameAddress() +" : " + hospital.getBusinessTypeName());
+        }
+    }
 }

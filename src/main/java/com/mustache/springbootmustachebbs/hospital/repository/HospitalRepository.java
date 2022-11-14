@@ -8,4 +8,5 @@ import java.util.List;
 public interface HospitalRepository extends JpaRepository<Hospital, Integer> {
     List<Hospital> findByRoadNameAddressContainsAndHospitalNameContains(String RoadNameAddress, String HospitalName);
     List<Hospital> findByBusinessTypeNameIn(List<String> inClues);
+    List<Hospital> findByRoadNameAddressLikeAndBusinessTypeNameIn(String RoadNameAddress, List<String> inClues);
 }
