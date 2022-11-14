@@ -62,4 +62,13 @@ class HospitalRepositoryTest {
             System.out.println(hospital.getHospitalName() + " : " + hospital.getTotalNumberOfBeds());
         }
     }
+
+    @Test
+    @DisplayName("입원실 수 기준으로 내림차순 정렬 Test")
+    void Test5() {
+        List<Hospital> hospitals = hospitalRepository.findAllByOrderByPatientRoomCountDesc();
+        for(Hospital hospital : hospitals) {
+            System.out.println(hospital.getHospitalName() + " : " + hospital.getPatientRoomCount());
+        }
+    }
 }
