@@ -1,12 +1,14 @@
 package com.mustache.springbootmustachebbs.hospital.domain.entity;
 
 import com.mustache.springbootmustachebbs.hospital.domain.dto.HospitalShowDto;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "nation_wide_hospitals")
+@Data
 public class Hospital {
     @Id
     private Integer id;                         // 번호(PK)
