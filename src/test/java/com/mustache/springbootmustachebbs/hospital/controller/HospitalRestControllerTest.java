@@ -17,6 +17,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+// 테스트를 원하는 Controller을 안에다 써줌
+// => 안 써주면 모든 @Controller, @RestController, @ControllerAdvice 호출
 @WebMvcTest(HospitalRestController.class)
 class HospitalRestControllerTest {
 
@@ -46,6 +48,7 @@ class HospitalRestControllerTest {
                         .businessStatusName("영업중")
                         .build();
 
+        // hospitalService.getHospital(2321)의 결과가 위에서 만든 hospitalResponse와 같은지 체크
         given(hospitalService.getHospital(2321)).willReturn(hospitalResponse);
 
         int hospitalId = 2321;
@@ -53,11 +56,11 @@ class HospitalRestControllerTest {
         mockMvc.perform(get(url))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.hospitalName").exists())  // $는 루트 $아래에 hospitalName이 있어야 함
-                .andExpect(jsonPath("$.hospitalName").value("노소아청소년과의원"))
+                .andExpect(jsonPath("$.hospitalName").value("노소아청소년과의원"))   // value 값 체크
                 .andExpect(jsonPath("$.businessTypeName").value("의원"))
                 .andDo(print());
 
-        // getHospital() 메소드의 호출이 있었는지 확인
+        // hospitalService의 getHospital(2321) 메소드의 호출이 있었는지 확인
         verify(hospitalService).getHospital(2321);
     }
 }
