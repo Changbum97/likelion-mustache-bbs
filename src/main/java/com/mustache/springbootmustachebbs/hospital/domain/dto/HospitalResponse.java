@@ -5,6 +5,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class HospitalResponse {
     private Integer id;
     private String roadNameAddress;
