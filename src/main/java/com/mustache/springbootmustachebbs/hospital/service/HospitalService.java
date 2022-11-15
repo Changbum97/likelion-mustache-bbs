@@ -25,10 +25,12 @@ public class HospitalService {
 
         // 입력된 business Status Cdoe를 String 형태로 변환
         int businessStatusCode = hospital.getBusinessStatusCode();
-        String businessStatusName = String.valueOf(businessStatusCode);
+        String businessStatusName = "기타";
 
         if(businessStatusCode == 13) {
             businessStatusName = "영업중";
+        } else if(businessStatusCode == 2) {
+            businessStatusName = "휴업";
         } else if(businessStatusCode == 3) {
             businessStatusName = "폐업";
         }
