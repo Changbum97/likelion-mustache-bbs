@@ -54,3 +54,15 @@
   - between
   - less than, greater than, less than equal, greater than equal
   - order by
+
+## Day 7 (11/15 화)
+- Hospital RestController 생성 => API 설계
+  - findById 구현
+- Hospital Service 생성
+  - Hospital RestController의 findById, DTO로 변환 하는 부분을 Hospital Service로 옮김
+  - businessStatusCode을 Code 번호에 맞는 이름으로 변경
+    - ex) 13 => 영업중
+- HospitalResponse(DTO)에 @Builder 적용
+- Controller Test 진행
+  - @WebMvcTest를 사용해 HospitalRestController Test 진행
+  - Mock을 사용해 DB와 상관 없이 Test 진행
