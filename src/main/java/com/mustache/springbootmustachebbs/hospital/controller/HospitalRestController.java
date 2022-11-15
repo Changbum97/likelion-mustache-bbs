@@ -23,6 +23,8 @@ public class HospitalRestController {
     public ResponseEntity<HospitalResponse> get(@PathVariable Integer id) {
         Optional<Hospital> optionalHospital = hospitalRepository.findById(id);
         Hospital hospital = optionalHospital.get();
+
+        // JSON 형식의 데이터 제공
         return ResponseEntity.ok().body(Hospital.of(hospital));
     }
 }

@@ -1,19 +1,16 @@
 package com.mustache.springbootmustachebbs.hospital.domain.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Builder
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class HospitalResponse {
     private Integer id;
     private String roadNameAddress;
     private String hospitalName;
-
-    public HospitalResponse(Integer id, String roadNameAddress, String hospitalName) {
-        this.id = id;
-        this.roadNameAddress = roadNameAddress;
-        this.hospitalName = hospitalName;
-    }
+    private Integer patientRoomCount;
+    private Integer totalNumberOfBeds;
+    private String businessTypeName;
+    private Float totalAreaSize;
 }
