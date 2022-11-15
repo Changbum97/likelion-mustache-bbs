@@ -22,9 +22,14 @@ public class HospitalRestController {
     @GetMapping("/{id}")
     public ResponseEntity<HospitalResponse> get(@PathVariable Integer id) {
         Optional<Hospital> optionalHospital = hospitalRepository.findById(id);
+
+        // Hospital Entity
         Hospital hospital = optionalHospital.get();
 
-        // JSON 형식의 데이터 제공
-        return ResponseEntity.ok().body(Hospital.of(hospital));
+        // DTO
+        HospitalResponse hospitalResponse = Hospital.of(hospital);
+
+        // Return은 DTO로
+        return ResponseEntity.ok().body(hospitalResponse);
     }
 }
