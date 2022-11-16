@@ -1,23 +1,21 @@
 package com.mustache.springbootmustachebbs.basicboard.domain.dto;
 
 import com.mustache.springbootmustachebbs.basicboard.domain.entity.Article;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-@ToString
-public class ArticleDto {
-    private Long id;
+@Getter
+public class ArticleAddRequest {
+
     private String title;
     private String content;
 
     public Article toEntity() {
-        return Article.builder()
-                .id(id)
-                .title(title)
-                .content(content)
+        Article article = Article.builder()
+                .title(this.title)
+                .content(this.content)
                 .build();
+        return article;
     }
 }
