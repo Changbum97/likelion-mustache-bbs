@@ -66,3 +66,7 @@
 - Controller Test 진행
   - @WebMvcTest를 사용해 HospitalRestController Test 진행
   - Mock을 사용해 DB와 상관 없이 Test 진행
+
+## Day 8 (11/16 수)
+- Add 기능 테스트 코드 작성
+- Add 기능 구현
