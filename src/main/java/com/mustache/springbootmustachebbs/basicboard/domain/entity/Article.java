@@ -1,5 +1,8 @@
 package com.mustache.springbootmustachebbs.basicboard.domain.entity;
 
+import com.mustache.springbootmustachebbs.basicboard.domain.dto.ArticleDto;
+import com.mustache.springbootmustachebbs.hospital.domain.dto.HospitalResponse;
+import com.mustache.springbootmustachebbs.hospital.domain.entity.Hospital;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,4 +28,8 @@ public class Article {
 
     @OneToMany(mappedBy = "article")
     private List<Reply> replies = new ArrayList<>();
+
+    public static ArticleDto of(Article article) {
+        return new ArticleDto(article.getId(), article.getTitle(), article.getContent());
+    }
 }
