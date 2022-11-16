@@ -2,6 +2,7 @@ package com.mustache.springbootmustachebbs.basicboard.domain.dto;
 
 import com.mustache.springbootmustachebbs.basicboard.domain.entity.Article;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 
 @AllArgsConstructor

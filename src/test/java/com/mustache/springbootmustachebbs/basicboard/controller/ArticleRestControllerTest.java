@@ -10,15 +10,20 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -61,20 +66,22 @@ class ArticleRestControllerTest {
     void addArticleTest() throws Exception {
 
         ArticleAddRequest articleAddRequest = new ArticleAddRequest("제목111", "내용111");
+        ArticleAddResponse articleAddResponse = new ArticleAddResponse(21L, "제목111", "내용111");
 
-        given(articleService.add(any()))
-                .willReturn(new ArticleAddResponse(1L, "제목111", "내용111"));
+        //given(articleService.add(articleAddRequest)).willReturn(articleAddResponse);
+        given(articleService.add(any())).willReturn(articleAddResponse);
 
         byte[] jsonRequest = objectMapper.writeValueAsBytes(articleAddRequest);
         String url = "/api/v1/articles";
 
-        mockMvc.perform(post(url).content(jsonRequest).contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(post(url).content(jsonRequest)
+                        .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").exists())
                 .andExpect(jsonPath("$.title").exists())
                 .andExpect(jsonPath("$.content").exists())
                 .andDo(print());
 
-        verify(articleService).add(any());
+         verify(articleService).add(any());
     }
 }

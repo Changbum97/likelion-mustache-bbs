@@ -1,14 +1,16 @@
 package com.mustache.springbootmustachebbs.basicboard.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mustache.springbootmustachebbs.basicboard.domain.dto.ArticleAddRequest;
 import com.mustache.springbootmustachebbs.basicboard.domain.dto.ArticleAddResponse;
 import com.mustache.springbootmustachebbs.basicboard.domain.dto.ArticleDto;
-import com.mustache.springbootmustachebbs.basicboard.domain.entity.Article;
-import com.mustache.springbootmustachebbs.basicboard.repository.ArticleRepository;
 import com.mustache.springbootmustachebbs.basicboard.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.nio.charset.Charset;
 
 @RestController
 @Slf4j

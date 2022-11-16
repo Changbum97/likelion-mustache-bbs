@@ -1,8 +1,6 @@
 package com.mustache.springbootmustachebbs.basicboard.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor
 @Getter
