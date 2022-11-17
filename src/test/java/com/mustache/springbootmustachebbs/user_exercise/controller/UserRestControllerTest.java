@@ -80,7 +80,8 @@ class UserRestControllerTest {
         UserResponse expectedResponse = UserResponse.builder()
                 .id(1L).username("username11").message("가입이 완료 되었습니다.").build();
 
-        given(userService.addUser(any())).willReturn(expectedResponse);
+        //given(userService.addUser(any())).willReturn(expectedResponse);
+        given(userService.addUser(request)).willReturn(expectedResponse);
 
         byte[] jsonRequest = objectMapper.writeValueAsBytes(request);
 
@@ -92,6 +93,6 @@ class UserRestControllerTest {
                 .andExpect(jsonPath("$.message").value("가입이 완료 되었습니다."))
                 .andDo(print());
 
-        verify(userService).addUser(any());
+        verify(userService).addUser(request);
     }
 }
