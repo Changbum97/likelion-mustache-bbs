@@ -70,3 +70,11 @@
 ## Day 8 (11/16 수)
 - Add 기능 테스트 코드 작성
 - Add 기능 구현
+
+## Day 9 (11/17 목)
+- User Exercise
+  - Rest API를 적용한 user 추가, 조회 기능 작성
+  - 레이어드 아키텍쳐를 적용해 Controller, Service, Repository 구조 적용
+  - @WebMvcTest, Mock을 사용해 UserRestController의 기능 테스트
+  - UserService의 addUser 메소드 테스트
+    - Service Test는 Spring 사용 X
