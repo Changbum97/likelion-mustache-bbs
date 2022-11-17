@@ -78,3 +78,4 @@
   - @WebMvcTest, Mock을 사용해 UserRestController의 기능 테스트
   - UserService의 addUser 메소드 테스트
     - Service Test는 Spring 사용 X
+    - Spring을 사용하지 않으면 속도를 더 빠르게 할 수 있지만 의존 주입을 직접 해줘야 함
