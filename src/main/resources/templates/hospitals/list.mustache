@@ -3,7 +3,12 @@
     <form action="/hospitals/list" method="get">
         <div class="mb-3">
             <label for="area" class="form-label">지역명 : </label>
-            <input type="text" name="area" style="width: 300px">
+            {{#area}}
+                <input type="text" name="area" style="width: 300px" value="{{area}}">
+            {{/area}}
+            {{^area}}
+                <input type="text" name="area" style="width: 300px">
+            {{/area}}
             <button type="submit" class="btn btn-primary" style="margin-top: 0px;">검색</button>
         </div>
     </form>
