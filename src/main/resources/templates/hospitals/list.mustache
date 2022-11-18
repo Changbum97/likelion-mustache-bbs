@@ -1,5 +1,15 @@
 {{>layouts/header}}
 <div class="col-10">
+    <form action="/hospitals/list" method="get">
+        <div class="mb-3">
+            <label for="area" class="form-label">지역명 : </label>
+            <input type="text" name="area" style="width: 300px">
+            <button type="submit" class="btn btn-primary" style="margin-top: 0px;">검색</button>
+        </div>
+    </form>
+    <div>
+        <h5>검색 결과 : {{searchCount}} 개</h5>
+    </div>
     <table class="table" style="margin-top: 20px; margin-bottom: 50px;">
         <thead class="table-info">
         <tr>
@@ -20,11 +30,24 @@
     </table>
 </div>
 <ul class="pagination justify-content-center">
+    <!-- area가 존재하면 => 검색 o -->
+    {{#area}}
+    <li class="page-item">
+        <a class="page-link" href="?area={{area}}&page={{previous}}">Previous</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="?area={{area}}&page={{next}}">Next</a>
+    </li>
+    {{/area}}
+    </li>
+    <!-- area가 존재하지 않으면 => 검색 x -->
+    {{^area}}
     <li class="page-item">
         <a class="page-link" href="?page={{previous}}">Previous</a>
     </li>
     <li class="page-item">
         <a class="page-link" href="?page={{next}}">Next</a>
     </li>
+    {{/area}}
 </ul>
 {{>layouts/footer}}

@@ -3,15 +3,18 @@ package com.mustache.springbootmustachebbs.hospital.controller;
 import com.mustache.springbootmustachebbs.hospital.domain.entity.Hospital;
 import com.mustache.springbootmustachebbs.hospital.repository.HospitalRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.query.QueryParameter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -27,13 +30,23 @@ public class HospitalController {
     }
 
     @GetMapping("/list")
-    public String page(Model model,
+    public String page(Model model, @RequestParam @Nullable String area,
                         @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Hospital> hospitals = hospitalRepository.findAll(pageable);
+
+        Page<Hospital> hospitals = null;
+        log.info("area : {}", area);
+
+        if(area == null) {
+            hospitals = hospitalRepository.findAll(pageable);
+        } else {
+            hospitals = hospitalRepository.findByRoadNameAddressContains(area, pageable);
+        }
 
         model.addAttribute("hospitals", hospitals);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
+        model.addAttribute("area", area);
+        model.addAttribute("searchCount", hospitals.getTotalElements());
         return "hospitals/list";
     }
 
