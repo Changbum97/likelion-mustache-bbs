@@ -2,7 +2,10 @@ package com.mustache.springbootmustachebbs.hospital.domain.entity;
 
 import com.mustache.springbootmustachebbs.hospital.domain.dto.HospitalResponse;
 import com.mustache.springbootmustachebbs.hospital.domain.dto.HospitalShowDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +13,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "nation_wide_hospitals")
 @Data
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Hospital {
     @Id
     private Integer id;                         // 번호(PK)
