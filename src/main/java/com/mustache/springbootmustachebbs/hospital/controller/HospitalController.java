@@ -30,7 +30,7 @@ public class HospitalController {
     }
 
     @GetMapping("/list")
-    public String page(Model model, @RequestParam @Nullable String area,
+    public String page(Model model, @RequestParam(required = false) String area,
                         @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
 
         Page<Hospital> hospitals = null;
